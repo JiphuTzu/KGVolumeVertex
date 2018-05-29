@@ -47,7 +47,7 @@ MonoBehaviour:
   m_AssetID: a3694a19aed3e0f4dbc809e87e2b98cc
   m_CaptureEveryNthFrame: 1
   m_FrameRateMode: 1
-  m_FrameRate: 30
+  m_FrameRate: 60
   m_FrameRateExact: 1
   m_StartFrame: 0
   m_EndFrame: 10
