@@ -11,6 +11,8 @@ public class VolumeVertex : MonoBehaviour {
 
         [ColorUsage(false, true)]
         public Color m_emissionColor;
+
+        public float m_powItensity;
     }
 
 	[SerializeField]
@@ -26,14 +28,6 @@ public class VolumeVertex : MonoBehaviour {
 		get{return m_affectRange;}
 		set{m_affectRange = value;}
 	}
-
-    [SerializeField]
-    float m_pow = 20;
-    public float pow
-    {
-        get { return m_pow; }
-        set { m_pow = value; }
-    }
 
     [SerializeField]
     Material m_mat;
@@ -65,11 +59,14 @@ public class VolumeVertex : MonoBehaviour {
         var _color = from _s in m_target
                    select _s.m_emissionColor;
 
+        var _pow = from _s in m_target
+                     select _s.m_powItensity;
+
         m_mat.SetVectorArray("_TargetPos", _pos.ToList());
         m_mat.SetColorArray("_TargetColor", _color.ToList());
+        m_mat.SetFloatArray("_TargetPow", _pow.ToList());
         m_mat.SetInt("_TargetCount", _pos.ToList().Count());
         m_mat.SetFloat("_AffectRange",m_affectRange);
-        m_mat.SetFloat("_Pow", m_pow);
 
 	}
 }
